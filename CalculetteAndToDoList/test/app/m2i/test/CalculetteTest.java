@@ -89,6 +89,18 @@ class CalculetteTest {
 		
 	}
 
+	@Test
+	void factorielleTest() {
+		
+		
+		float a = 3f;		
+		float attendu = 6f;
+		Calculette calculette = new Calculette(); 
+		
+		float result = calculette.factorielle(a);
+		
+		assertEquals(attendu, result);
+	}	
 	
 
 }
