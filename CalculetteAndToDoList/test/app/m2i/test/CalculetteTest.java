@@ -29,16 +29,23 @@ class CalculetteTest {
 	}
 	
 	@Test
-	void multiplyTest() {
+	void divideTest() {
 		float a = 2.0f;
 		float b = 2.0f;
+		float result = 0f;
 		List <Float> list = new ArrayList<Float>();
 		list.add(a);
 		list.add(b);
-		float expected = 4.0f;
+		float expected = 1.0f;
 		Calculette calculette = new Calculette();
 		
-		float result = calculette.multiply(list);
+		
+		try {
+			result = calculette.divide(list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		assertEquals(expected,result);
 		
