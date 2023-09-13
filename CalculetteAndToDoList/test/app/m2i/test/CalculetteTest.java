@@ -50,5 +50,45 @@ class CalculetteTest {
 		assertEquals(expected,result);
 		
 	}
+	
+	@Test
+	void additionTest() {
+		
+		
+		float a = 1f;
+		float b = 1f;
+		
+		List <Float> list = new ArrayList<Float>();
+		list.add(a);
+		list.add(b);
+		float attendu = 2f;
+		Calculette calculette = new Calculette(); 
+		
+		float result = calculette.sum(list);
+		
+		assertEquals(attendu, result);
+		
+	}
+	
+	@Test
+	void multiplicationTest() {
+		
+		
+		float a = 4f;
+		float b = 5f;
+		
+		List <Float> list = new ArrayList<Float>();
+		list.add(a);
+		list.add(b);
+		float attendu = 20f;
+		Calculette calculette = new Calculette(); 
+		
+		float result = calculette.multiply(list);
+		
+		assertEquals(attendu, result);
+		
+	}
+
+	
 
 }
