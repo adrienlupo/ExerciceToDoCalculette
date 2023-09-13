@@ -58,11 +58,15 @@ public class GestBDD {
       
     
 	
-	public void AjoutDansBdd(String tache){
+	public void AjoutDansBdd(String tache) throws Exception {
 		
-		System.out.println("Ajout d'un élément : ");
+		//System.out.println("Ajout d'un élément : ");
 		
-		try {
+		if (tache.equals ("Faire dodo"))
+		throw new Exception("Cette tâche n'est pas autorisée !");
+		
+		else {
+		
 			String sql = "INSERT INTO listetaches (tache) VALUES (?) ";
 			
 			PreparedStatement ps = connection.prepareStatement (sql);
@@ -72,19 +76,14 @@ public class GestBDD {
 			
 			ps.execute();
 			ps.close();
-		}
-		
-			catch (SQLException e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-				
+		    
+		}	
 	}
 	
 	
 	public void SuppDansBdd(int id){
 		
-		System.out.println("Suppression d'un élément : ");
+		//System.out.println("Suppression d'un élément : ");
 		
 		try {
 			String sql = "DELETE FROM listetaches WHERE id =?";
