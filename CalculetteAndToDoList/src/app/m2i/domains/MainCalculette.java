@@ -17,12 +17,14 @@ public class MainCalculette {
 		Calculette calculette = new Calculette();
 		
 		System.out.println("Choisissez une operation : ");
-		System.out.println("1 - Addition");
+		System.out.println("1 - Addition ////");
 		System.out.println("2 - Soustraction ");
 		System.out.println("3 - Division");
 		System.out.println("4 - Multiplication");
 		System.out.println("5 - Factorielle");
 		System.out.println(">");
+		
+		
 		
 		sc = new Scanner(System.in);
 		operation  = sc.nextLine();
@@ -31,19 +33,20 @@ public class MainCalculette {
 		System.out.println("Choisissez un nombre");
 		sc = new Scanner(System.in);
 		number = sc.nextLine();
+		
 		list.add(Float.parseFloat(number));
 		
-		if (!number.equals("5")) {
-
+		
+		if (!operation.equals("5")) {
 		while (!number.equals("")) {
 			System.out.println("Choisissez un autre nombre ou pressez Entrée pour quitter");
 			sc = new Scanner(System.in);
 			number = sc.nextLine();
-			if (!number.equals(""))
+			if (!number.equals("")) {
 				list.add(Float.parseFloat(number));
 			}
+			}
 		}
-		
 		
 		switch(operation) {
 		case "1":
@@ -53,7 +56,12 @@ public class MainCalculette {
 			System.out.println(calculette.sub(list));
 			break;
 		case "3":
-			System.out.println(calculette.divide(list));
+			try {
+				System.out.println(calculette.divide(list));
+			}
+			catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 			break;
 		case "4":
 			System.out.println(calculette.multiply(list));
@@ -62,7 +70,7 @@ public class MainCalculette {
 			System.out.println(calculette.factorielle(Float.parseFloat(number)));
 			break;
 		}
-		
+		sc.close();
 		System.out.println("over");
 		
 		
