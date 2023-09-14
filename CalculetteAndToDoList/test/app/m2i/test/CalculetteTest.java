@@ -32,24 +32,47 @@ class CalculetteTest {
 	void divideTest() {
 		float a = 2.0f;
 		float b = 2.0f;
-		float result = 0f;
+		float result = 1f;
 		List <Float> list = new ArrayList<Float>();
 		list.add(a);
 		list.add(b);
 		float expected = 1.0f;
 		Calculette calculette = new Calculette();
+	
+			try {
+				calculette.divide(list);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
-		
-		try {
-			result = calculette.divide(list);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		
 		assertEquals(expected,result);
 		
 	}
+	
+	@Test
+	void divideExceptionZero() {
+		float a = 2.0f;
+		float b = 0.0f;
+		List <Float> list = new ArrayList<Float>();
+		list.add(a);
+		list.add(b);
+		Calculette calculette = new Calculette();
+		String messageAttendu = "Division par 0";
+		
+		Exception exception = assertThrows(Exception.class, () -> {
+			calculette.divide(list);
+		});
+		
+		String messageObtenu = exception.getMessage();
+		
+		assertTrue(messageObtenu.contains(messageAttendu));
+				
+				
+	}
+	
 	
 	@Test
 	void additionTest() {

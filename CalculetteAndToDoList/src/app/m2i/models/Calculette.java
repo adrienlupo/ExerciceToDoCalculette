@@ -45,14 +45,14 @@ public class Calculette {
 	  
 	}
 	public float divide (List<Float> args) throws Exception {
-		 float result = 0;
+		 float result = 0f;
 		  boolean bool = false;
 	      for (float f : args) {
 	    	  if (bool == false)  {
 	    		  result = f;
 	    		  bool = true;
 	    	  }
-	    	  else if (f == 0) {
+	    	  else if (f == 0f) {
 	    		  throw new Exception("Division par 0");
 	    	  }
 	    	  else {
